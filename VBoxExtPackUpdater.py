@@ -27,7 +27,7 @@ def get_sha256sums(version):
 def load_ext_pack(version):
     extpack_dir = DL_BASE_URL.format(version=version)
     r = requests.get(extpack_dir)
-    soup = BeautifulSoup(r.text, 'lxml')
+    soup = BeautifulSoup(r.text, 'html.parser')
     extpack_name = filter(
         lambda x: x.endswith('.vbox-extpack'),
         [x['href'] for x in soup.findAll('a')]
