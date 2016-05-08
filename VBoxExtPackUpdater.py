@@ -16,7 +16,7 @@ DL_BASE_URL = 'http://download.virtualbox.org/virtualbox/{version}/'
 def get_installed_version():
     version = subprocess.check_output(['VBoxManage', '--version'])
     # needed, as some/all(?) VBoxManage warnings go to stdout
-    return re.search('^(\d+\.\d+\.\d+)r\d+$', version, re.MULTILINE).group(1)
+    return re.search('^(\d+\.\d+\.\d+)', version, re.MULTILINE).group(1)
 
 
 def get_sha256sums(version):
